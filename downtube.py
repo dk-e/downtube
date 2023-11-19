@@ -1,6 +1,6 @@
 from pytube import YouTube
 import os
-from colorama import Fore, Style
+from colorama import Fore, Back, Style
 
 # Function to download mp3
 def download_mp3(url, destination_folder):
@@ -25,13 +25,13 @@ def download_mp3(url, destination_folder):
         os.rename(out_file, new_file)
 
         # Print title and views
-        print(Style.BRIGHT + Fore.WHITE + "Video Title: ", yt.title)
-        print(Style.BRIGHT + Fore.WHITE + "Video Views: ", yt.views)
+        print(Style.BRIGHT + Fore.WHITE + "[🎬]Video Title: ", yt.title)
+        print(Style.BRIGHT + Fore.WHITE + "[🎬]Video Views: ", yt.views)
 
         if file_number > 1:
             print(Fore.YELLOW + f"The filename '{os.path.basename(base)}.mp3' was already taken, so now it will be called '{os.path.basename(new_file)}'.")
         
-        print(Style.BRIGHT + Fore.GREEN + yt.title + f" has been successfully downloaded as {os.path.basename(new_file)}.")
+        print(Style.BRIGHT + Fore.GREEN + yt.title + f" has been successfully downloaded as '{os.path.basename(new_file)}'.")
     except Exception as e:
         print(Fore.RED + f"An error occurred: {e}")
 
@@ -40,9 +40,9 @@ def download_mp4(url, destination_folder):
     try:
         yt = YouTube(url)
 
-        # outputs the title and views of the yt vid selected
-        print(Style.BRIGHT + Fore.WHITE + "Video Title: ", yt.title)
-        print(Style.BRIGHT + Fore.WHITE + "Video Views: ", yt.views)
+        # Print title and views
+        print(Style.BRIGHT + Fore.WHITE + "[🎬]Video Title: ", yt.title)
+        print(Style.BRIGHT + Fore.WHITE + "[🎬]Video Views: ", yt.views)
 
         # downloads the highest resolution video
         yd = yt.streams.get_highest_resolution()
@@ -60,7 +60,7 @@ def download_mp4(url, destination_folder):
         if file_number > 1:
             print(Fore.YELLOW + f"The filename '{os.path.basename(base)}.mp4' was already taken, so now it will be called '{os.path.basename(new_file)}'.")
         
-        print(Style.BRIGHT + Fore.GREEN + yt.title + f" has been successfully downloaded as {os.path.basename(new_file)}.")
+        print(Style.BRIGHT + Fore.GREEN + yt.title + f" has been successfully downloaded as '{os.path.basename(new_file)}'.")
     except Exception as e:
         print(Fore.RED + f"An error occurred: {e}")
 
