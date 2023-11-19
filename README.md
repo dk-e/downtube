@@ -4,7 +4,7 @@
 <h3 align="center">
 converts a youtube link to an audio (mp3) and/or video (mp4) file
 </h3>
-<img align="center" src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg">
+<img align="center" src="https://r2.e-z.host/1e931256-a4b9-4b37-b539-feff5e9e0a47/exsw61ti.png">
 
 # how to use
 ####  1. Verify that you have pip and python installed => https://www.youtube.com/watch?v=ec5vjIg0bUA
