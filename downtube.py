@@ -6,7 +6,7 @@ import pyperclip
 
 def upload_to_transfersh(file_path):
     try:
-        max_file_size = 100 * 1024 * 1024  # 100 MB (adjust as needed)
+        max_file_size = 15 * 1024 * 1024  # 25 MB (adjust as needed)
 
         # Check file size
         file_size = os.path.getsize(file_path)
@@ -81,9 +81,11 @@ def download_mp4(url, destination_folder, upload_to_cloud=False):
         print("\n" + Style.BRIGHT + Fore.WHITE + "[🎬] Video Title:", yt.title)
         print(Style.BRIGHT + Fore.WHITE + "[🎬] Video Views:", yt.views)
 
+        # Get the stream with the highest resolution
+        highest_resolution_stream = yt.streams.get_highest_resolution()
+
         # downloads the highest resolution video
-        yd = yt.streams.get_highest_resolution()
-        out_file = yd.download(destination_folder)
+        out_file = highest_resolution_stream.download(destination_folder)
 
         # Check if the file already exists
         file_number = 1
@@ -125,7 +127,7 @@ if __name__ == "__main__":
     choice = str(input(Fore.CYAN + "Do you want to download as mp3 or mp4 > ")).lower()
 
     # Ask the user if they want to upload to Transfer.sh
-    upload_to_cloud = input(Fore.CYAN + "Do you want to upload to Transfer.sh [to get a raw file link]? (yes/no) > ").lower() == 'yes'
+    upload_to_cloud = input(Fore.CYAN + "Do you want to upload to Transfer.sh [to get a raw file link - NOTE: if mp4 it will be very slow]? (yes/no) > ").lower() == 'yes'
 
     # Check if the user wants to upload to Transfer.sh and skip folder creation
     if upload_to_cloud:
