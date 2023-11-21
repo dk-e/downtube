@@ -21,4 +21,4 @@ converts a youtube link to an audio (mp3) and/or video (mp4) file
 ####  5. Looks good
 
 ## credits
-myself (zurly @injectings)
+myself (zurly @initialised)
